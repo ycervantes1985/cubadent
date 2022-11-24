@@ -1,8 +1,7 @@
 import React from 'react';
 import {useUser} from "../contexts/userContext"
-import { useNavigate } from 'react-router-dom';
 import logout from '../services/logout';
-import Detail from './Detail';
+
 
 
 const Main = () => {
@@ -29,7 +28,7 @@ const Main = () => {
             main
             <h2>{renderInfo()} </h2>
             {user && <button onClick={logOut}>LOGOUT</button>}
-            {user && <Detail></Detail> }
+            
         </div>
     );
 }
