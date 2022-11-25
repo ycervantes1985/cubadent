@@ -11,7 +11,7 @@ const PacienteSchema = new Schema({
     },
     apellidos: {
         type: String,
-        required: [true, "Debe Apellidos"],
+        required: [true, "Debe ingresar Apellidos"],
     },
     direccion: {
         type: String,
