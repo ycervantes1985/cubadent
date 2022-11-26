@@ -1,38 +1,34 @@
-import logo from "./logo.svg";
+import React from 'react';
 import "./App.css";
-import { Link, Route, Routes } from "react-router-dom";
-import Main from "./views/Main";
-import Login from "./views/Login";
+import {Route, Routes } from "react-router-dom";
 import Register from "./views/Register";
 import { UserProvider } from "./contexts/userContext";
-import {useUser} from "./contexts/userContext"
 import Detail from "./views/Detail";
+import PacienteForm from "./components/PacienteForm";
+import Home from "./views/Home";
+import Main from "./views/Main";
+import Login from "./views/Login";
+
+
 
 function App() {
 
-  return (
-    <div className="App">
-      <UserProvider>
-        <ul>
-          <li>
-            <Link to="/">MAIN</Link>
-          </li>
-          <li>
-            <Link to="/login">LOGIN</Link>
-          </li>
-          <li>
-            <Link to="/register">REGISTRO</Link>
-          </li>
-          
-        </ul>
-
-        <Routes>
-          <Route path="/" element={<Main></Main>}></Route>
-          <Route path="/login" element={<Login></Login>}></Route>
-          <Route path="/register" element={<Register />}></Route>
+  return (    
+    <div className="App">  
+      
+      <UserProvider> 
+          <Main></Main>              
+          <Routes>
+            <Route path="/" element={<Login></Login>}></Route>
+            <Route path="/home" element={<Home></Home>}></Route>        
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="/add-paciente" element={<PacienteForm />}></Route>
+            <Route path="/paciente/tratamiento/:id" element={<Detail />}></Route>
         </Routes>
-      </UserProvider>
-    </div>
+    </UserProvider>
+
+    </div> 
+
   );
 }
 

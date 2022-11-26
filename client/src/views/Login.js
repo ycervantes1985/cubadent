@@ -17,8 +17,9 @@ const Login = () => {
         if(response.data.message===""){
             console.log("USUARIO LOGUEADO",response.data)
             const response2 = await simpleGetAuthenticated(`/api/user/${response.data._id}`)
+            console.log("Response 2:", response2)
             setUser(response2.data);
-            navigate("/")
+            navigate("/home")
         }else{
             const errorResponse = response.data.errors; // Get the errors from err.response.data
             const errorArr = []; // Define a temp error array to push the messages in

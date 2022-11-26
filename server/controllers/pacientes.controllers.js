@@ -20,7 +20,7 @@ module.exports.addPaciente = async (req, res) => {
 
 module.exports.getAllPacientes = async (req, res) => {
     try {
-        const pacientes = await Paciente.find()           
+        const pacientes = await Paciente.find().sort({"createdAt":1})           
         res.json({ 
             message: 'Se han traído de manera exitosa los pacientes',
             pacientes
