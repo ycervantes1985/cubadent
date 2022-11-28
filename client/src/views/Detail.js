@@ -29,16 +29,36 @@ const Detail = () => {
 
     useEffect(() => {
         getPacienteT()
-        getPaciente()      
+        getPaciente() 
+          
     }, []);
 
     const goToBack = () =>{navigate(`/home`)}
 
+    const addTratamiento = id =>{  navigate(`/add-tratamiento/${id}`)  }
+
+    function sortByDate(a, b) {
+        if (a.createdAt < b.createdAt) {
+            return 1;
+        }
+        if (a.createdAt > b.createdAt) {
+            return -1;
+        }
+        return 0;
+    }
+
+
+    tratamientos?.sort(sortByDate)
+
+    console.log("Tratamientos ordenados",tratamientos)
     
+
+
     return (
         <div>
             <div>
                {paciente &&
+               <div>
                 <div className='detail-top'>
                     <div>
                         <h2>{paciente.name} {paciente.apellidos}</h2>
@@ -46,22 +66,34 @@ const Detail = () => {
                     <div>
                         <h2 className='emergencia'>{paciente.telefonoEm}</h2>
                         
-                    </div>  
-                </div>                          
+                    </div>                     
+                </div> 
+                <div className='preexistencias-top'>
+                    <div>
+                        <h5>Antecendentes: {paciente.antecedentesEnfermedades}</h5>
+                    </div> 
+                    <div>
+                        <h5>Tratamiento Medico: {paciente.tratamientoMedico}</h5>
+                    </div>                   
+                    <div>                      
+                        <h5>Alergias: {paciente.alergias}</h5>
+                    </div>
+                </div>  
+            </div>                       
                 }
             </div>
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     {tratamientos?.map((tratamiento)=>
                     <tr key= {tratamiento._id}>
-                        <th scope="row">{moment(tratamiento.createAd).format('DD-MM-YYYY')}</th>
+                        <th scope="row">{moment(tratamiento.createdAt).format('DD-MM-YYYY')}</th>
                         <td> {tratamiento.descripcion} </td>
                         <td> 
                         {tratamiento.estatus}
@@ -71,6 +103,7 @@ const Detail = () => {
                 </tbody>
             </Table> 
             <Button onClick={goToBack}>Volver</Button> 
+            <Button variant='success' onClick={() => addTratamiento(paciente._id)}>Adicionar</Button>
         </div>
     );
 }

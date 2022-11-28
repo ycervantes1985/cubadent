@@ -8,6 +8,7 @@ import PacienteForm from "./components/PacienteForm";
 import Home from "./views/Home";
 import Main from "./views/Main";
 import Login from "./views/Login";
+import TratamientoForm from './components/TratamientoForm';
 
 
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/home" element={<Home></Home>}></Route>        
             <Route path="/register" element={<Register />}></Route>
             <Route path="/add-paciente" element={<PacienteForm />}></Route>
+            <Route path="/add-tratamiento/:id" element={<TratamientoForm />}></Route>
             <Route path="/paciente/tratamiento/:id" element={<Detail />}></Route>
         </Routes>
     </UserProvider>

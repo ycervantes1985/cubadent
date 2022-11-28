@@ -20,7 +20,7 @@ module.exports.addPaciente = async (req, res) => {
 
 module.exports.getAllPacientes = async (req, res) => {
     try {
-        const pacientes = await Paciente.find().sort({"createdAt":1})           
+        const pacientes = await Paciente.find().sort({"createdAt":-1}).exec()          
         res.json({ 
             message: 'Se han traído de manera exitosa los pacientes',
             pacientes
@@ -113,8 +113,12 @@ module.exports.addPacienteTratamiento = async (req, res) => {
 module.exports.getTratamientosFromPaciente = async (req, res) =>{
     try {
         const { id } = req.params;
-        const paciente = await Paciente.findById(id).populate("tratamientos").exec();
-        res.json({ 
+        const paciente = await Paciente.findById(id).populate({
+            path: 'tratamientos'
+            
+        }).sort({createdAt:'desc'}).exec();
+        
+            res.json({ 
             message: 'Se ha conseguido un paciente',
             tratamientos: paciente.tratamientos
         });
