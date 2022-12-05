@@ -27,7 +27,7 @@ const Detail = () => {
       setSearchedColumn(dataIndex);
     };
     const handleReset = (clearFilters) => {
-      clearFilters();
+      clearFilters({ confirm: true })
       setSearchText('');
     };
     const getColumnSearchProps = (dataIndex) => ({
