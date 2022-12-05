@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { useParams, useNavigate } from 'react-router-dom';
 import { addTratamientoToPaciente } from '../services/paciente-service';
 import Button from 'react-bootstrap/Button';
+import Swal from 'sweetalert2'
 
 const TratamientoForm = () => {
 
@@ -39,7 +40,7 @@ const TratamientoForm = () => {
             console.log(id)  
             const updatePaciente = await addTratamientoToPaciente(id, values)
             console.log("datos de actualizar tratamiento", updatePaciente)
-            alert(updatePaciente.data.message)
+            Swal.fire('Se ha realizado un tratamiento')            
             navigate(`/paciente/tratamiento/${id}`)
         } catch(err) {
             console.log("🚀 ~ file: CommentsForm.js ~ line 30 ~ addComment ~ err", err)

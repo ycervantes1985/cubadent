@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import Swal from 'sweetalert2'
 
 
 
@@ -52,7 +53,7 @@ const PacienteForm = () => {
         console.log("🚀 ~ file: PackageForm.js ~ line 51 ~ addTravel ~ values", values)
         try {
             const createPacienteInService = !id ? await createPaciente(values) : await updatePaciente(id, values);
-            alert(createPacienteInService.data.message)
+            Swal.fire('Se ha creado un paciente')            
             navigate('/home')
             return createPacienteInService;
         } catch(err) {
