@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import Button from 'react-bootstrap/Button';
 import * as Yup from "yup";
+
 
 const LoginForm = (props) => {
 
@@ -49,7 +51,7 @@ const LoginForm = (props) => {
                     <Field  id='password' type="password" placeholder="Contraseña" className={`form-control`} name='password'/>
                     {errors.password && touched.password && <p>{errors.password}</p>}
                     <br></br>
-                    <button type="submit" disabled={Object.values(errors).length > 0}>Login</button>
+                    <Button type="submit" disabled={Object.values(errors).length > 0}>Login</Button>
                 </Form>
                 </div>
         );

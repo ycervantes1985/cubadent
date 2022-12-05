@@ -74,8 +74,8 @@ const TratamientoForm = () => {
                         </div>
 
                         <div>
-                            <Button onClick={goToBack} >Volver</Button>
-                            <Button type='submit' variant='success'>Agregar</Button>                            
+                            <Button onClick={goToBack} variant="secondary">Volver</Button>
+                            <Button type='submit' >Agregar</Button>                            
                         </div>
                     </Form>
                 )}

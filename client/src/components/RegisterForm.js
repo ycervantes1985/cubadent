@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form} from "formik";
 import * as Yup from "yup";
+import Button from 'react-bootstrap/Button';
 
 const RegisterForm = (props) => {
 
@@ -78,7 +79,7 @@ const RegisterForm = (props) => {
                     <Field  id='confirmPassword' type="password" placeholder="Confirmar Contraseña" className="form-control" name='confirmPassword'/>
                     {errors.confirmPassword && touched.confirmPassword && <p>{errors.confirmPassword}</p>}
                     <br></br>
-                    <button type="submit" disabled={Object.values(errors).length > 0}>Registrarse</button>
+                    <Button type="submit" disabled={Object.values(errors).length > 0}>Registrarse</Button>
                 </Form>
                 </div>
         );

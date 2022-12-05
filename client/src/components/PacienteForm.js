@@ -4,6 +4,9 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+
+
 
 const PacienteForm = () => {
     const [paciente, setPaciente] = useState({
@@ -43,11 +46,12 @@ const PacienteForm = () => {
 
     }, [paciente])
 
+    const goToBack = () =>{navigate(`/home`)}
+    
     const addPaciente = async (values) => {
         console.log("🚀 ~ file: PackageForm.js ~ line 51 ~ addTravel ~ values", values)
         try {
             const createPacienteInService = !id ? await createPaciente(values) : await updatePaciente(id, values);
-            
             alert(createPacienteInService.data.message)
             navigate('/home')
             return createPacienteInService;
@@ -180,8 +184,9 @@ const PacienteForm = () => {
                                 </div>
                         </div> 
                     <div>
-                            <button type='submit' >Agregar</button>
-                        </div>
+                            <Button type='submit' variant="secondary" onClick={goToBack} >Volver</Button>
+                            <Button type='submit' >Agregar</Button>
+                    </div>
                     </Form>
                 )}
 
