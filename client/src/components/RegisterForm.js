@@ -51,8 +51,6 @@ const RegisterForm = (props) => {
                 errors,
                 touched,
                 handleSubmit,
-                //isSubmitting,
-                //validating,
                 valid,
             }) =>{
         return (
