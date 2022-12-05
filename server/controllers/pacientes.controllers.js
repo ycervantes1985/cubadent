@@ -10,7 +10,7 @@ module.exports.addPaciente = async (req, res) => {
         
     } catch (error) {
         res.status(500).json({ 
-            message: 'Ups no hemos podido crear el paquete de viaje',
+            message: 'Ups no hemos podido crear el paciente',
             error
         })
         
@@ -64,7 +64,7 @@ module.exports.updatePaciente = async (req, res) => {
 
     } catch(err) {
         res.status(500).json({ 
-            message: 'Ups no hemos actualizare',
+            message: 'Ups no hemos actualizar el paciente',
             err
         });
     };
