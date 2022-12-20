@@ -42,6 +42,19 @@ align-items: center;
 gap: 15px;
 }
 
+.tbl-detail{
+  padding: 0;
+}
+
+.btn-detail{
+margin-bottom: 15px;
+display: flex;
+justify-content: center;
+gap: 15px;
+
+
+}
+
 .remove-bg{
   filter:brightness(1.1);
   mix-blend-mode: multiply;

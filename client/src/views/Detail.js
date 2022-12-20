@@ -4,9 +4,10 @@ import {useParams,useNavigate,Link} from "react-router-dom"
 import { simpleGet } from '../services/simpleGet';
 import moment from 'moment';
 import { SearchOutlined } from '@ant-design/icons';
-import { Button, Input, Space, Table } from 'antd';
+import {  Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words'
-import { Card, Col, Row } from 'antd';
+import { Card, Col, Row, Image } from 'antd';
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -164,7 +165,6 @@ const Detail = () => {
             dataIndex: 'createdAt',
             key: 'fecha',
             width: '30%',
-            ...getColumnSearchProps('createdAt'),
             render: (createdAt) => {
             return (
                 <div> 
@@ -178,7 +178,7 @@ const Detail = () => {
             title: 'Descripcion',
             dataIndex: 'descripcion',
             key: 'descripcion',
-            ...getColumnSearchProps('descripcion'),
+            
         },
         {
             title: 'Estatus',
@@ -186,7 +186,15 @@ const Detail = () => {
             key: 'estatus',
             width: '20%',
             ...getColumnSearchProps('estatus'),
-        },          
+        },         
+        
+
+        {
+            title: 'Rayo X',
+            dataIndex: 'foto',
+            width: '10%',           
+            render: (t, r) => <Image src={`${r.foto}`} />
+          },
         
 ]; 
     
@@ -232,9 +240,12 @@ const Detail = () => {
                 }
             </div>
             <div>
-                <Table columns={columns} dataSource={tratamientos} size='small' />            
-                <Button onClick={goToBack}>Volver</Button> 
-                <Button variant='success' onClick={() => addTratamiento(paciente._id)}>Adicionar</Button>
+                <Table className='tbl-detail' columns={columns} dataSource={tratamientos} size='small' />
+                <div className='btn-detail'>
+                    <Button variant="secondary" onClick={goToBack}>Volver</Button> 
+                    <Button type='submit' onClick={() => addTratamiento(paciente._id)}>Adicionar</Button>
+                </div>            
+                
             </div>
             
         </div>

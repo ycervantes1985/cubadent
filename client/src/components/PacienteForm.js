@@ -184,7 +184,7 @@ const PacienteForm = () => {
                                     
                                 </div>
                         </div> 
-                    <div>
+                    <div className='btn-detail'>
                             <Button type='submit' variant="secondary" onClick={goToBack} >Volver</Button>
                             <Button type='submit' >Agregar</Button>
                     </div>

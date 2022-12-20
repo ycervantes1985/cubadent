@@ -27,7 +27,7 @@ function App() {
             <Route path="/edit-paciente/:id" element={<PacienteForm />}></Route>
             <Route path="/add-tratamiento/:id" element={<TratamientoForm />}></Route>
             <Route path="/paciente/tratamiento/:id" element={<Detail />}></Route>
-        </Routes>
+          </Routes>
     </UserProvider>
 
     </div> 

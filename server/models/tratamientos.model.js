@@ -15,6 +15,10 @@ const TratamientosSchema = new Schema({
         type: String,
  }, 
 
+ foto: {
+    type: String,
+}, 
+
 }, { timestamps: true });
 
 const Tratamiento = model('Tratamiento', TratamientosSchema);

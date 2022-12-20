@@ -6,6 +6,7 @@ import { simpleGet } from '../services/simpleGet'
 import { SearchOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words'
+import Swal from 'sweetalert2'
 
 
 
@@ -182,6 +183,7 @@ const onDeletePaciente = async (record) =>{
     try {
         await deletePaciente(record);
         setPaciente(pacientes.filter(paciente => paciente._id !== record));
+        Swal.fire('Se ha eliminado un paciente')
     } catch(err) {
             console.log("Error", err)
     }
