@@ -76,9 +76,48 @@ margin-top: 10px;
 max-width: 450px;
 margin: 0 auto;
 
-
-
 }
+
+
+.image-container-upload{
+  margin: 10px 0;
+  padding: 0;
+  gap:10px
+  }
+  
+  .icon-buton, .image-container-upload,.img-btn{
+    display: flex;
+    align-items:center;
+    
+  }
+
+  .container1{
+display: flex;
+flex-direction: column;
+
+  }
+
+
+ 
+  
+  
+  
+  .img-btn{
+    border: #D4D7D9 dashed;
+    border-radius: 5px;
+    padding: 10px;
+    width: 210px;
+    gap: 10px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    justify-content: center;
+  }
+
+  .icon-text{
+    font-size: 1.2em;
+    margin: 0;
+    font-weight: 200;
+  }
 
 .table{
 padding: 0;

@@ -91,7 +91,7 @@ const ImageUpload = (props) => {
                     onClick={onImageUpload}
                     {...dragProps}>
                         <FileImageOutlined style={{fontSize: '2em', color: isDragging ? "#08c":"#D4D7D90"}}/>
-                        <p className='icon-text'style={{color: isDragging ? "#08c":"#D4D7D90"}}>Arrastre imagen aquí</p>
+                        <p className='icon-text'style={{color: isDragging ? "#08c":"#D4D7D90"}}>Arrastre imagen</p>
                     </div>
                 }
             </div>

@@ -4,9 +4,8 @@ import {useParams,useNavigate,Link} from "react-router-dom"
 import { simpleGet } from '../services/simpleGet';
 import moment from 'moment';
 import { SearchOutlined } from '@ant-design/icons';
-import {  Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words'
-import { Card, Col, Row, Image } from 'antd';
+import { Card, Col, Row, Image , Input, Space, Table } from 'antd';
 import Button from 'react-bootstrap/Button';
 
 
@@ -22,6 +21,7 @@ const Detail = () => {
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef(null);
+
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
       confirm();
       setSearchText(selectedKeys[0]);
@@ -186,9 +186,9 @@ const Detail = () => {
             key: 'estatus',
             width: '20%',
             ...getColumnSearchProps('estatus'),
-        },         
+        },   
         
-
+    
         {
             title: 'Rayo X',
             dataIndex: 'foto',

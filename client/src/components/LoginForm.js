@@ -40,7 +40,7 @@ const LoginForm = (props) => {
                 valid,
             }) =>{
         return (
-            <div>
+            <div className='container1'>
                 <h1>Login</h1>
                 <Form className= "form-login" method= "post" onSubmit={handleSubmit}>
                     <label htmlFor="email" className="col-form-label">Correo Electrónico</label>
@@ -51,7 +51,7 @@ const LoginForm = (props) => {
                     <Field  id='password' type="password" placeholder="Contraseña" className={`form-control`} name='password'/>
                     {errors.password && touched.password && <p>{errors.password}</p>}
                     <br></br>
-                    <Button type="submit" disabled={Object.values(errors).length > 0}>Login</Button>
+                    <Button className='btn-log1' type="submit" disabled={Object.values(errors).length > 0}>Login</Button>
                 </Form>
                 </div>
         );
